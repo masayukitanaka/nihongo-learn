@@ -56,7 +56,7 @@ function KanaSection({ title, path, maxChars }: KanaSectionProps) {
           <textarea
             id={`${path}-text`}
             rows={2}
-            placeholder="e.g. あいうえお"
+            placeholder={path === '/katakana' ? 'e.g. アイウエオ' : 'e.g. あいうえお'}
             value={text}
             onChange={(e) => setText(e.target.value)}
           />
