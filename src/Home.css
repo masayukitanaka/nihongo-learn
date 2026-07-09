@@ -1,0 +1,79 @@
+.home-page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 24px;
+  box-sizing: border-box;
+}
+
+.home-page h1 {
+  margin: 0 0 32px;
+}
+
+.home-sections {
+  display: flex;
+  gap: 32px;
+  width: 100%;
+  max-width: 800px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.home-section {
+  flex: 1 1 320px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.home-section h2 {
+  margin: 0 0 16px;
+}
+
+.home-option {
+  margin-bottom: 16px;
+}
+
+.home-option:last-child {
+  margin-bottom: 0;
+}
+
+.home-option label {
+  display: block;
+  font-size: 13px;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.home-option-row {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.home-option-row input,
+.home-option-row textarea {
+  flex: 1;
+  font: inherit;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-h);
+  box-sizing: border-box;
+  resize: none;
+}
+
+.home-option-row button {
+  font: inherit;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid var(--accent-border);
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  white-space: nowrap;
+}
