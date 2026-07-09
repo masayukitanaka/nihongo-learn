@@ -6,6 +6,7 @@ function Katakana() {
     <KanaMatchGame
       vowels={VOWELS}
       rows={KATAKANA_ROWS}
+      scriptName="Katakana"
       clearMessage="You placed all the katakana correctly."
     />
   )

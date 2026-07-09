@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&family=Nunito+Sans:wght@400;600;700;900&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+  @keyframes floaty { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
+  @keyframes pulseRing { 0%,100%{box-shadow:0 0 0 0 rgba(255,122,107,.35)} 50%{box-shadow:0 0 0 6px rgba(255,122,107,0)} }
+  body{ margin:0; background:#ECEAF3; font-family:'Nunito Sans',sans-serif; }
+  a{ color:#FF7A6B; text-decoration:none; }
+  a:hover{ color:#E85F4F; }
+</style>
+</helmet>
+
+<section style="padding:56px 64px 96px; background:radial-gradient(circle at 1px 1px,rgba(120,90,60,.09) 1px,transparent 0) 0 0/26px 26px, #F3EEE6; min-height:100vh; box-sizing:border-box;">
+
+  <header style="max-width:960px; margin:0 auto 40px;">
+    <div style="font-family:'Baloo 2',cursive; font-weight:700; font-size:15px; letter-spacing:.16em; text-transform:uppercase; color:#B79E88;">Soft Bubble · final direction</div>
+    <h1 style="font-family:'Fredoka',sans-serif; font-weight:700; font-size:40px; color:#2E2A26; margin:6px 0 0;">Japanese Practice</h1>
+    <p style="margin:10px 0 0; color:#9C9184; font-size:16px; max-width:640px; line-height:1.6;">Home + the real drag-to-fill practice game, styled in the soft pastel direction. Pan &amp; zoom freely.</p>
+  </header>
+
+  <div style="max-width:960px; margin:0 auto; display:flex; flex-direction:column; gap:36px;">
+
+    <!-- ===================== HOME ===================== -->
+    <div>
+      <div style="font-family:'Baloo 2',cursive;font-weight:600;color:#9C9184;font-size:14px;margin-bottom:12px;">Home</div>
+      <div style="border-radius:26px; overflow:hidden; box-shadow:0 30px 60px rgba(120,90,80,.20); background:#fff;">
+        <div style="height:44px; background:#fff; border-bottom:1px solid #F2ECE4; display:flex; align-items:center; gap:8px; padding:0 18px;">
+          <span style="width:11px;height:11px;border-radius:50%;background:#FF7A6B;"></span>
+          <span style="width:11px;height:11px;border-radius:50%;background:#FFC24B;"></span>
+          <span style="width:11px;height:11px;border-radius:50%;background:#23B5A6;"></span>
+          <span style="margin-left:14px; background:#F7F1E9; color:#A89E90; font-size:13px; padding:5px 16px; border-radius:999px;">nihongo-practice.app</span>
+        </div>
+        <div style="background:#FBF6EE; padding:40px 44px 48px;">
+          <div style="display:flex; align-items:center; gap:18px; margin-bottom:34px;">
+            <div style="position:relative; width:66px; height:60px; background:#FF7A6B; border-radius:52% 48% 50% 50%/60% 60% 40% 40%; animation:floaty 3.4s ease-in-out infinite; box-shadow:0 10px 22px rgba(255,122,107,.4);">
+              <span style="position:absolute; width:9px;height:11px;background:#2E2A26;border-radius:50%; top:24px; left:19px;"></span>
+              <span style="position:absolute; width:9px;height:11px;background:#2E2A26;border-radius:50%; top:24px; right:19px;"></span>
+              <span style="position:absolute; width:12px;height:6px;background:#FFC7BF;border-radius:50%; top:37px; left:11px;"></span>
+              <span style="position:absolute; width:12px;height:6px;background:#FFC7BF;border-radius:50%; top:37px; right:11px;"></span>
+            </div>
+            <div>
+              <h2 style="font-family:'Fredoka',sans-serif; font-weight:700; font-size:34px; color:#2E2A26; margin:0;">Japanese Practice</h2>
+              <p style="margin:4px 0 0; color:#9C9184; font-size:16px;">Master hiragana &amp; katakana, one character at a time</p>
+            </div>
+            <div style="margin-left:auto; display:flex; align-items:center; gap:8px; background:#fff; padding:8px 14px; border-radius:999px; box-shadow:0 6px 16px rgba(120,90,60,.10);">
+              <span style="width:10px;height:10px;border-radius:50%;background:#FFC24B;"></span>
+              <span style="font-family:'Fredoka',sans-serif; font-weight:600; color:#2E2A26; font-size:15px;">Day 5</span>
+            </div>
+          </div>
+          <div style="display:flex; gap:24px;">
+            <div style="flex:1; background:#fff; border-radius:26px; padding:26px; box-shadow:0 18px 38px rgba(120,90,60,.12);">
+              <div style="display:flex; align-items:center; gap:14px; margin-bottom:22px;">
+                <div style="width:62px;height:62px;border-radius:20px;background:#FFE7E2;display:flex;align-items:center;justify-content:center;font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:34px;color:#FF7A6B;">あ</div>
+                <div>
+                  <div style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:21px;color:#2E2A26;">Hiragana</div>
+                  <div style="color:#A89E90;font-size:14px;">46 basic characters</div>
+                </div>
+              </div>
+              <label style="display:block;font-weight:700;font-size:13px;color:#9C9184;margin-bottom:8px;">RANDOM RANGE</label>
+              <div style="display:flex;gap:10px;margin-bottom:18px;">
+                <div style="flex:1;background:#FBF6EE;border-radius:14px;padding:13px 16px;color:#2E2A26;font-size:16px;">1 – 46</div>
+                <button style="background:#FF7A6B;color:#fff;border:none;border-radius:14px;padding:0 22px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:16px;box-shadow:0 8px 16px rgba(255,122,107,.35);cursor:pointer;">Start</button>
+              </div>
+              <label style="display:block;font-weight:700;font-size:13px;color:#9C9184;margin-bottom:8px;">SPECIFIC CHARACTERS</label>
+              <div style="display:flex;gap:10px;">
+                <div style="flex:1;background:#FBF6EE;border-radius:14px;padding:13px 16px;color:#C4BAAC;font-size:16px;font-family:'Zen Maru Gothic',sans-serif;">e.g. あいうえお</div>
+                <button style="background:#FFE7E2;color:#FF7A6B;border:none;border-radius:14px;padding:0 22px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:16px;cursor:pointer;">Start</button>
+              </div>
+            </div>
+            <div style="flex:1; background:#fff; border-radius:26px; padding:26px; box-shadow:0 18px 38px rgba(120,90,60,.12);">
+              <div style="display:flex; align-items:center; gap:14px; margin-bottom:22px;">
+                <div style="width:62px;height:62px;border-radius:20px;background:#D6F3EF;display:flex;align-items:center;justify-content:center;font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:34px;color:#23B5A6;">ア</div>
+                <div>
+                  <div style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:21px;color:#2E2A26;">Katakana</div>
+                  <div style="color:#A89E90;font-size:14px;">46 basic characters</div>
+                </div>
+              </div>
+              <label style="display:block;font-weight:700;font-size:13px;color:#9C9184;margin-bottom:8px;">RANDOM RANGE</label>
+              <div style="display:flex;gap:10px;margin-bottom:18px;">
+                <div style="flex:1;background:#FBF6EE;border-radius:14px;padding:13px 16px;color:#2E2A26;font-size:16px;">1 – 46</div>
+                <button style="background:#23B5A6;color:#fff;border:none;border-radius:14px;padding:0 22px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:16px;box-shadow:0 8px 16px rgba(35,181,166,.32);cursor:pointer;">Start</button>
+              </div>
+              <label style="display:block;font-weight:700;font-size:13px;color:#9C9184;margin-bottom:8px;">SPECIFIC CHARACTERS</label>
+              <div style="display:flex;gap:10px;">
+                <div style="flex:1;background:#FBF6EE;border-radius:14px;padding:13px 16px;color:#C4BAAC;font-size:16px;font-family:'Zen Maru Gothic',sans-serif;">e.g. アイウエオ</div>
+                <button style="background:#D6F3EF;color:#23B5A6;border:none;border-radius:14px;padding:0 22px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:16px;cursor:pointer;">Start</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== PRACTICE (drag-to-fill) ===================== -->
+    <div>
+      <div style="font-family:'Baloo 2',cursive;font-weight:600;color:#9C9184;font-size:14px;margin-bottom:12px;">Practice — drag each kana into the chart</div>
+      <div style="border-radius:26px; overflow:hidden; box-shadow:0 30px 60px rgba(120,90,80,.20); background:#FBF6EE;">
+        <div style="height:44px; background:#fff; border-bottom:1px solid #F2ECE4; display:flex; align-items:center; gap:8px; padding:0 18px;">
+          <span style="width:11px;height:11px;border-radius:50%;background:#FF7A6B;"></span>
+          <span style="width:11px;height:11px;border-radius:50%;background:#FFC24B;"></span>
+          <span style="width:11px;height:11px;border-radius:50%;background:#23B5A6;"></span>
+        </div>
+
+        <!-- practice header -->
+        <div style="display:flex; align-items:center; gap:16px; padding:22px 40px 4px;">
+          <div style="width:40px;height:40px;border-radius:14px;background:#fff;display:flex;align-items:center;justify-content:center;color:#9C9184;font-size:22px;box-shadow:0 4px 12px rgba(120,90,60,.10);cursor:pointer;">‹</div>
+          <div style="flex:1;">
+            <div style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:19px;color:#2E2A26;">Fill the chart · Hiragana</div>
+            <div style="display:flex; align-items:center; gap:12px; margin-top:8px;">
+              <div style="flex:1;max-width:320px;height:12px;border-radius:999px;background:#EFE7DC;overflow:hidden;"><div style="width:66%;height:100%;background:#FF7A6B;border-radius:999px;"></div></div>
+              <span style="font-family:'Fredoka',sans-serif;font-weight:600;color:#9C9184;font-size:14px;">16 to go</span>
+            </div>
+          </div>
+          <div style="position:relative; width:52px; height:48px; background:#FF7A6B; border-radius:52% 48% 50% 50%/60% 60% 40% 40%; animation:floaty 3.4s ease-in-out infinite; box-shadow:0 8px 18px rgba(255,122,107,.36);">
+            <span style="position:absolute; width:7px;height:9px;background:#2E2A26;border-radius:50%; top:19px; left:15px;"></span>
+            <span style="position:absolute; width:7px;height:9px;background:#2E2A26;border-radius:50%; top:19px; right:15px;"></span>
+            <span style="position:absolute; width:9px;height:5px;background:#FFC7BF;border-radius:50%; top:29px; left:9px;"></span>
+            <span style="position:absolute; width:9px;height:5px;background:#FFC7BF;border-radius:50%; top:29px; right:9px;"></span>
+          </div>
+        </div>
+
+        <!-- board + tray -->
+        <div style="display:flex; gap:0; padding:14px 40px 40px;">
+
+          <!-- board -->
+          <div style="flex:0 0 auto; padding-right:34px;">
+            <div style="display:grid; grid-template-columns:24px repeat(5,54px); gap:9px; align-items:center;">
+              <div></div>
+              <div style="text-align:center;font-family:'Fredoka',sans-serif;font-size:15px;color:#C0B5A5;">a</div>
+              <div style="text-align:center;font-family:'Fredoka',sans-serif;font-size:15px;color:#C0B5A5;">i</div>
+              <div style="text-align:center;font-family:'Fredoka',sans-serif;font-size:15px;color:#C0B5A5;">u</div>
+              <div style="text-align:center;font-family:'Fredoka',sans-serif;font-size:15px;color:#C0B5A5;">e</div>
+              <div style="text-align:center;font-family:'Fredoka',sans-serif;font-size:15px;color:#C0B5A5;">o</div>
+              <sc-for list="{{ rows }}" as="row" hint-placeholder-count="10">
+                <div style="font-family:'Fredoka',sans-serif;font-size:13px;color:#C0B5A5;text-align:center;">{{ row.label }}</div>
+                <sc-for list="{{ row.cells }}" as="cell" hint-placeholder-count="5">
+                  <sc-if value="{{ cell.placed }}" hint-placeholder-val="{{ true }}">
+                    <div style="width:54px;height:54px;border-radius:14px;background:#fff;display:flex;align-items:center;justify-content:center;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:26px;color:#2E2A26;box-shadow:0 4px 10px rgba(120,90,60,.10);">{{ cell.k }}</div>
+                  </sc-if>
+                  <sc-if value="{{ cell.hi }}">
+                    <div style="width:54px;height:54px;border-radius:14px;background:#FFE7E2;display:flex;align-items:center;justify-content:center;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:26px;color:#FF7A6B;border:2px solid #FF7A6B;box-sizing:border-box;animation:pulseRing 1.6s ease-in-out infinite;">{{ cell.k }}</div>
+                  </sc-if>
+                  <sc-if value="{{ cell.empty }}">
+                    <div style="width:54px;height:54px;border-radius:14px;background:rgba(255,122,107,.05);border:2px dashed #E3D5C4;box-sizing:border-box;"></div>
+                  </sc-if>
+                  <sc-if value="{{ cell.none }}">
+                    <div style="width:54px;height:54px;visibility:hidden;"></div>
+                  </sc-if>
+                </sc-for>
+              </sc-for>
+            </div>
+            <!-- standalone ん slot -->
+            <div style="display:flex;align-items:center;gap:9px;margin-top:14px;padding-top:14px;border-top:1px dashed #E3D5C4;">
+              <span style="font-family:'Fredoka',sans-serif;font-size:13px;color:#C0B5A5;">n</span>
+              <div style="width:54px;height:54px;border-radius:14px;background:rgba(255,122,107,.05);border:2px dashed #E3D5C4;box-sizing:border-box;"></div>
+              <span style="color:#B5AA9A;font-size:13px;">the sole standalone kana</span>
+            </div>
+          </div>
+
+          <!-- tray -->
+          <div style="flex:1; border-left:1px dashed #E3D5C4; padding-left:34px;">
+            <div style="font-weight:700;font-size:13px;color:#9C9184;margin-bottom:6px;">TILES</div>
+            <div style="position:relative; height:430px;">
+              <div style="position:absolute; left:30px; top:14px; transform:rotate(-6deg); width:58px;height:58px;border-radius:16px;background:#E4F2C9;display:flex;align-items:center;justify-content:center;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:27px;color:#2E2A26;box-shadow:0 8px 16px rgba(120,90,60,.14);cursor:grab;">ほ</div>
+              <div style="position:absolute; left:150px; top:36px; transform:rotate(-9deg); width:58px;height:58px;border-radius:16px;background:#EFD9F0;display:flex;align-items:center;justify-content:center;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:27px;color:#2E2A26;box-shadow:0 8px 16px rgba(120,90,60,.14);cursor:grab;">ね</div>
+              <div style="position:absolute; left:206px; top:20px; transform:rotate(8deg); width:58px;height:58px;border-radius:16px;background:#F3D9F0;display:flex;align-items:center;justify-content:center;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:27px;color:#2E2A26;box-shadow:0 8px 16px rgba(120,90,60,.14);cursor:grab;">く</div>
+              <div style="position:absolute; left:250px; top:64px; transform:rotate(4deg); width:58px;height:58px;border-radius:16px;background:#F3D9F0;display:flex;align-items:center;justify-content:center;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:27px;color:#2E2A26;box-shadow:0 8px 16px rgba(120,90,60,.14);cursor:grab;">た</div>
+              <div style="position:absolute; left:20px; top:150px; transform:rotate(-5deg); width:58px;height:58px;border-radius:16px;background:#FBE3C9;display:flex;align-items:center;justify-content:center;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:27px;color:#2E2A26;box-shadow:0 8px 16px rgba(120,90,60,.14);cursor:grab;">こ</div>
+              <div style="position:absolute; left:140px; top:158px; transform:rotate(6deg); width:58px;height:58px;border-radius:16px;background:#D6E4FB;display:flex;align-items:center;justify-content:center;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:27px;color:#2E2A26;box-shadow:0 8px 16px rgba(120,90,60,.14);cursor:grab;">つ</div>
+              <div style="position:absolute; left:300px; top:132px; transform:rotate(-7deg); width:58px;height:58px;border-radius:16px;background:#D6F3EF;display:flex;align-items:center;justify-content:center;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:27px;color:#2E2A26;box-shadow:0 8px 16px rgba(120,90,60,.14);cursor:grab;">そ</div>
+              <div style="position:absolute; left:372px; top:150px; transform:rotate(9deg); width:58px;height:58px;border-radius:16px;background:#F7D6E8;display:flex;align-items:center;justify-content:center;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:27px;color:#2E2A26;box-shadow:0 8px 16px rgba(120,90,60,.14);cursor:grab;">す</div>
+              <div style="position:absolute; left:70px; top:250px; transform:rotate(-8deg); width:58px;height:58px;border-radius:16px;background:#E7E0FB;display:flex;align-items:center;justify-content:center;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:27px;color:#2E2A26;box-shadow:0 8px 16px rgba(120,90,60,.14);cursor:grab;">と</div>
+              <div style="position:absolute; left:420px; top:238px; transform:rotate(10deg); width:58px;height:58px;border-radius:16px;background:#CDEFD8;display:flex;align-items:center;justify-content:center;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:27px;color:#2E2A26;box-shadow:0 8px 16px rgba(120,90,60,.14);cursor:grab;">け</div>
+              <div style="position:absolute; left:300px; top:250px; transform:rotate(-4deg); width:58px;height:58px;border-radius:16px;background:#F3D9F0;display:flex;align-items:center;justify-content:center;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:27px;color:#2E2A26;box-shadow:0 8px 16px rgba(120,90,60,.14);cursor:grab;">ん</div>
+              <div style="position:absolute; left:220px; top:300px; transform:rotate(6deg); width:58px;height:58px;border-radius:16px;background:#CDEFD8;display:flex;align-items:center;justify-content:center;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:27px;color:#2E2A26;box-shadow:0 8px 16px rgba(120,90,60,.14);cursor:grab;">を</div>
+              <div style="position:absolute; left:378px; top:326px; transform:rotate(8deg); width:58px;height:58px;border-radius:16px;background:#FBD9D2;display:flex;align-items:center;justify-content:center;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:27px;color:#2E2A26;box-shadow:0 8px 16px rgba(120,90,60,.14);cursor:grab;">ひ</div>
+              <div style="position:absolute; left:30px; top:344px; transform:rotate(-8deg); width:58px;height:58px;border-radius:16px;background:#EDE4FB;display:flex;align-items:center;justify-content:center;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:27px;color:#2E2A26;box-shadow:0 8px 16px rgba(120,90,60,.14);cursor:grab;">う</div>
+              <div style="position:absolute; left:150px; top:340px; transform:rotate(5deg); width:58px;height:58px;border-radius:16px;background:#EFD9F0;display:flex;align-items:center;justify-content:center;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:27px;color:#2E2A26;box-shadow:0 8px 16px rgba(120,90,60,.14);cursor:grab;">む</div>
+              <div style="position:absolute; left:445px; top:70px; transform:rotate(-6deg); width:58px;height:58px;border-radius:16px;background:#F7D6E8;display:flex;align-items:center;justify-content:center;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:27px;color:#2E2A26;box-shadow:0 8px 16px rgba(120,90,60,.14);cursor:grab;">か</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const c = (k, s) => ({ k, placed: s === 'P', hi: s === 'H', empty: s === 'E', none: s === 'N' });
+    const rows = [
+      { label: 'ø', cells: [c('あ','P'), c('い','P'), c('う','E'), c('え','P'), c('お','P')] },
+      { label: 'k', cells: [c('か','E'), c('き','P'), c('く','E'), c('け','E'), c('こ','E')] },
+      { label: 's', cells: [c('さ','P'), c('し','P'), c('す','E'), c('せ','P'), c('そ','E')] },
+      { label: 't', cells: [c('た','E'), c('ち','P'), c('つ','E'), c('て','P'), c('と','E')] },
+      { label: 'n', cells: [c('な','H'), c('に','P'), c('ぬ','P'), c('ね','E'), c('の','P')] },
+      { label: 'h', cells: [c('は','P'), c('ひ','E'), c('ふ','P'), c('へ','P'), c('ほ','E')] },
+      { label: 'm', cells: [c('ま','P'), c('み','P'), c('む','E'), c('め','P'), c('も','P')] },
+      { label: 'y', cells: [c('や','P'), c('','N'), c('ゆ','P'), c('','N'), c('よ','P')] },
+      { label: 'r', cells: [c('ら','P'), c('り','P'), c('る','H'), c('れ','P'), c('ろ','P')] },
+      { label: 'w', cells: [c('わ','P'), c('','N'), c('','N'), c('','N'), c('を','E')] },
+    ];
+    return { rows };
+  }
+}
+</script>
+</body>
+</html>

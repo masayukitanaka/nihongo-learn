@@ -1,57 +1,182 @@
+@keyframes kana-floaty {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes kana-pulse-ring {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 122, 107, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(255, 122, 107, 0);
+  }
+}
+
 .kana-page {
   position: relative;
   display: flex;
   flex-direction: column;
   flex: 1;
+  background: var(--bg);
   box-sizing: border-box;
 }
 
-.kana-top-link {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  z-index: 10;
-  font-size: 12px;
+.kana-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 22px 40px 4px;
+}
+
+.kana-back-btn {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--text);
-  opacity: 0.5;
+  font-size: 22px;
+  box-shadow: var(--shadow-small);
+  cursor: pointer;
   text-decoration: none;
 }
 
-.kana-top-link:hover {
-  opacity: 0.8;
+.kana-header-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.kana-header-title {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 19px;
+  color: var(--text-h);
+}
+
+.kana-progress-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.kana-progress-track {
+  flex: 1;
+  max-width: 320px;
+  height: 12px;
+  border-radius: 999px;
+  background: var(--track);
+  overflow: hidden;
+}
+
+.kana-progress-fill {
+  height: 100%;
+  background: var(--coral);
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.kana-progress-label {
+  font-family: var(--display);
+  font-weight: 600;
+  color: var(--text);
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.kana-mascot {
+  position: relative;
+  flex-shrink: 0;
+  width: 52px;
+  height: 48px;
+  background: var(--coral);
+  border-radius: 52% 48% 50% 50% / 60% 60% 40% 40%;
+  box-shadow: 0 8px 18px rgba(255, 122, 107, 0.36);
+  animation: kana-floaty 3.4s ease-in-out infinite;
+}
+
+.kana-mascot-eye {
+  position: absolute;
+  width: 7px;
+  height: 9px;
+  background: var(--text-h);
+  border-radius: 50%;
+  top: 19px;
+}
+
+.kana-mascot-eye--left {
+  left: 15px;
+}
+
+.kana-mascot-eye--right {
+  right: 15px;
+}
+
+.kana-mascot-cheek {
+  position: absolute;
+  width: 9px;
+  height: 5px;
+  background: var(--cheek);
+  border-radius: 50%;
+  top: 29px;
+}
+
+.kana-mascot-cheek--left {
+  left: 9px;
+}
+
+.kana-mascot-cheek--right {
+  right: 9px;
 }
 
 .kana-split {
   position: relative;
   display: flex;
   flex: 1;
-  min-height: 100svh;
-}
-
-.kana-left,
-.kana-right {
-  flex: 1 1 50%;
-  min-width: 0;
-  box-sizing: border-box;
+  padding: 14px 40px 40px;
 }
 
 .kana-left {
-  border-right: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-  overflow: auto;
+  flex: 0 0 auto;
+  padding-right: 34px;
+  box-sizing: border-box;
+}
+
+.kana-right {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  border-left: 1px dashed var(--border);
+  padding-left: 34px;
+  box-sizing: border-box;
 }
 
 .kana-target {
   display: grid;
-  gap: 6px;
+  gap: 9px;
+  align-items: center;
 }
 
 .kana-target-cell--n {
   border-style: solid;
-  opacity: 0.6;
+  opacity: 0.7;
+}
+
+.kana-target-cell--just-placed {
+  background: var(--coral-tint) !important;
+  border-color: var(--coral) !important;
+  border-style: solid !important;
+  color: var(--coral);
+  animation: kana-pulse-ring 1.6s ease-in-out infinite;
 }
 
 .kana-target-corner {
@@ -62,58 +187,57 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 13px;
-  color: var(--text);
-  opacity: 0.6;
-  font-family: var(--mono);
+  font-family: var(--display);
+  font-size: 14px;
+  color: #c0b5a5;
 }
 
 .kana-target-cell {
-  width: 64px;
-  height: 64px;
-  border: 1px dashed var(--border);
-  border-radius: 8px;
-  background: transparent;
+  width: 58px;
+  height: 58px;
+  border-radius: 14px;
+  background: rgba(255, 122, 107, 0.05);
+  border: 2px dashed var(--border);
+  box-sizing: border-box;
 }
 
 .kana-target-cell--empty {
   border: none;
+  background: transparent;
 }
 
-.kana-right {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
+.kana-tiles-label {
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--text);
+  margin-bottom: 6px;
 }
 
 .kana-pile {
+  position: relative;
   width: 100%;
-  max-width: 420px;
-  aspect-ratio: 320 / 380;
+  max-width: 480px;
+  aspect-ratio: 480 / 430;
 }
 
 .kana-card {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: var(--code-bg);
+  border-radius: 14px;
+  font-family: var(--kana-font);
+  font-weight: 700;
+  font-size: 26px;
   color: var(--text-h);
-  font-size: 28px;
-  line-height: 1;
   user-select: none;
 }
 
 .kana-card--pile {
   position: absolute;
-  width: 64px;
-  height: 64px;
-  border-color: transparent;
-  color: #33302c;
-  box-shadow: var(--shadow);
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-tile);
   cursor: grab;
   touch-action: none;
 }
@@ -123,15 +247,13 @@
 }
 
 .kana-card--placed {
-  box-shadow: none;
-  border-color: var(--border);
+  box-shadow: var(--shadow-small);
 }
 
 .kana-card--preplaced {
-  background: #6b6b6b;
-  color: #fff;
-  border-color: transparent;
-  box-shadow: none;
+  background: var(--surface);
+  color: var(--text-faint);
+  box-shadow: var(--shadow-small);
   cursor: default;
 }
 
@@ -159,7 +281,7 @@
 }
 
 .kana-confetti {
-  position: absolute;
+  position: fixed;
   inset: 0;
   overflow: hidden;
   pointer-events: none;
@@ -194,21 +316,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(46, 42, 38, 0.45);
   z-index: 1001;
 }
 
 .kana-dialog {
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 12px;
+  background: var(--surface);
+  border-radius: 26px;
   padding: 32px;
   min-width: 280px;
   text-align: center;
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-frame);
 }
 
 .kana-dialog h2 {
+  font-family: var(--display);
   margin: 0 0 12px;
   font-size: 22px;
 }
@@ -225,17 +347,20 @@
 }
 
 .kana-dialog-actions button {
-  font: inherit;
-  padding: 10px 20px;
-  border-radius: 8px;
-  border: 1px solid var(--accent-border);
-  background: var(--accent);
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 16px;
+  padding: 12px 20px;
+  border-radius: 14px;
+  border: none;
+  background: var(--coral);
   color: #fff;
+  box-shadow: 0 8px 16px rgba(255, 122, 107, 0.35);
   cursor: pointer;
 }
 
 .kana-dialog-actions .kana-dialog-secondary {
-  background: transparent;
-  color: var(--text-h);
-  border-color: var(--border);
+  background: var(--coral-tint);
+  color: var(--coral);
+  box-shadow: none;
 }

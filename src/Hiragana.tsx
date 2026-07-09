@@ -6,6 +6,7 @@ function Hiragana() {
     <KanaMatchGame
       vowels={VOWELS}
       rows={HIRAGANA_ROWS}
+      scriptName="Hiragana"
       clearMessage="You placed all the hiragana correctly."
     />
   )

@@ -1,10 +1,12 @@
 import { Fragment, useLayoutEffect, useRef, useState } from 'react'
 import type { KanaRow } from '../kana-data'
+import { getKanaFont } from '../kana-fonts'
 import './KanaMatchGame.css'
 
 type KanaMatchGameProps = {
   vowels: string[]
   rows: KanaRow[]
+  scriptName: string
   clearTitle?: string
   clearMessage?: string
 }
@@ -16,13 +18,27 @@ type CardState = {
   y: number
   rotation: number
   zIndex: number
-  hue: number
+  color: string
   placed: boolean
   preplaced: boolean
 }
 
-const CARD_SIZE = 64
+const CARD_SIZE = 58
 const SNAP_THRESHOLD = CARD_SIZE * 0.6
+
+const TILE_COLORS = [
+  '#E4F2C9',
+  '#EFD9F0',
+  '#F3D9F0',
+  '#FBE3C9',
+  '#D6E4FB',
+  '#D6F3EF',
+  '#F7D6E8',
+  '#E7E0FB',
+  '#CDEFD8',
+  '#EDE4FB',
+  '#FBD9D2',
+]
 
 function pickPileChars(chars: string[]): Set<string> {
   const params = new URLSearchParams(window.location.search)
@@ -52,9 +68,9 @@ function createInitialCards(chars: string[]): Omit<CardState, 'x' | 'y'>[] {
   return chars.map((char, index) => ({
     id: index,
     char,
-    rotation: Math.random() * 40 - 20,
+    rotation: Math.random() * 19 - 9,
     zIndex: index,
-    hue: Math.random() * 360,
+    color: TILE_COLORS[index % TILE_COLORS.length],
     placed: !pileChars.has(char),
     preplaced: !pileChars.has(char),
   }))
@@ -83,15 +99,20 @@ function createConfetti(): Confetti[] {
 function KanaMatchGame({
   vowels,
   rows,
+  scriptName,
   clearTitle = 'Clear!',
   clearMessage = 'You placed all the kana correctly.',
 }: KanaMatchGameProps) {
   const chars = rows.flatMap((row) => row.chars).filter(
     (c): c is string => c !== null,
   )
+  const kanaFont = getKanaFont(
+    new URLSearchParams(window.location.search).get('font'),
+  )
 
   const [cards, setCards] = useState<CardState[] | null>(null)
   const [shakingId, setShakingId] = useState<number | null>(null)
+  const [justPlacedChar, setJustPlacedChar] = useState<string | null>(null)
   const [cleared, setCleared] = useState(false)
   const [confetti, setConfetti] = useState<Confetti[]>([])
   const [runId, setRunId] = useState(0)
@@ -120,6 +141,7 @@ function KanaMatchGame({
     const height = pileRect.height - CARD_SIZE
     setCleared(false)
     setConfetti([])
+    setJustPlacedChar(null)
     setCards(
       createInitialCards(chars).map((card) => {
         if (card.preplaced) {
@@ -230,6 +252,10 @@ function KanaMatchGame({
           }
           return next
         })
+        setJustPlacedChar(card.char)
+        setTimeout(() => {
+          setJustPlacedChar((current) => (current === card.char ? null : current))
+        }, 1200)
       }
     }
 
@@ -263,18 +289,47 @@ function KanaMatchGame({
     window.location.href = '/'
   }
 
+  const pileCards = cards?.filter((c) => !c.preplaced) ?? []
+  const totalInPlay = pileCards.length
+  const remaining = pileCards.filter((c) => !c.placed).length
+  const progressPct =
+    totalInPlay > 0 ? ((totalInPlay - remaining) / totalInPlay) * 100 : 0
+
   return (
-    <div className="kana-page">
-      <a href="/" className="kana-top-link">
-        Top
-      </a>
+    <div
+      className="kana-page"
+      style={{ ['--kana-font' as string]: kanaFont.fontFamily }}
+    >
+      <div className="kana-header">
+        <a href="/" className="kana-back-btn" aria-label="Back to top">
+          ‹
+        </a>
+        <div className="kana-header-info">
+          <div className="kana-header-title">Fill the chart · {scriptName}</div>
+          <div className="kana-progress-row">
+            <div className="kana-progress-track">
+              <div
+                className="kana-progress-fill"
+                style={{ width: `${progressPct}%` }}
+              />
+            </div>
+            <span className="kana-progress-label">{remaining} to go</span>
+          </div>
+        </div>
+        <div className="kana-mascot" aria-hidden="true">
+          <span className="kana-mascot-eye kana-mascot-eye--left" />
+          <span className="kana-mascot-eye kana-mascot-eye--right" />
+          <span className="kana-mascot-cheek kana-mascot-cheek--left" />
+          <span className="kana-mascot-cheek kana-mascot-cheek--right" />
+        </div>
+      </div>
       <div className="kana-split" ref={overlayRef}>
         <div className="kana-left">
           <div
             className="kana-target"
             style={{
-              gridTemplateColumns: `32px repeat(${vowels.length}, 64px) 64px`,
-              gridTemplateRows: `24px repeat(${rows.length}, 64px)`,
+              gridTemplateColumns: `24px repeat(${vowels.length}, 58px) 58px`,
+              gridTemplateRows: `20px repeat(${rows.length}, 58px)`,
             }}
           >
             <div className="kana-target-corner" />
@@ -290,7 +345,11 @@ function KanaMatchGame({
                 {row.chars.slice(0, vowels.length).map((char, colIndex) =>
                   char ? (
                     <div
-                      className="kana-target-cell"
+                      className={`kana-target-cell${
+                        justPlacedChar === char
+                          ? ' kana-target-cell--just-placed'
+                          : ''
+                      }`}
                       key={`${rowIndex}-${colIndex}`}
                       ref={(el) => {
                         if (el) cellRefs.current.set(char, el)
@@ -307,7 +366,11 @@ function KanaMatchGame({
                 )}
                 {row.chars[vowels.length] ? (
                   <div
-                    className="kana-target-cell kana-target-cell--n"
+                    className={`kana-target-cell kana-target-cell--n${
+                      justPlacedChar === row.chars[vowels.length]
+                        ? ' kana-target-cell--just-placed'
+                        : ''
+                    }`}
                     ref={(el) => {
                       const char = row.chars[vowels.length]
                       if (!char) return
@@ -326,6 +389,7 @@ function KanaMatchGame({
           </div>
         </div>
         <div className="kana-right">
+          <div className="kana-tiles-label">TILES</div>
           <div className="kana-pile" ref={pileRef} />
         </div>
         {cards?.map((card) => (
@@ -341,9 +405,7 @@ function KanaMatchGame({
               top: card.y,
               transform: `rotate(${card.rotation}deg)`,
               zIndex: card.zIndex,
-              background: card.preplaced
-                ? undefined
-                : `hsl(${card.hue} 55% 88%)`,
+              background: card.preplaced ? undefined : card.color,
             }}
             onPointerDown={(e) => handlePointerDown(e, card)}
             onPointerMove={handlePointerMove}
