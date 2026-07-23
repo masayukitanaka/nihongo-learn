@@ -1,6 +1,7 @@
 import { Fragment, useLayoutEffect, useRef, useState } from 'react'
 import type { KanaRow } from '../kana-data'
 import { getKanaFont } from '../kana-fonts'
+import { playCorrect, playWrong } from '../sounds'
 import './KanaMatchGame.css'
 
 type KanaMatchGameProps = {
@@ -233,6 +234,7 @@ function KanaMatchGame({
       )
       if (distance < SNAP_THRESHOLD) {
         snapped = true
+        playCorrect()
         setCards((prev) => {
           if (!prev) return prev
           const next = prev.map((c) =>
@@ -260,6 +262,7 @@ function KanaMatchGame({
     }
 
     if (!snapped) {
+      playWrong()
       setShakingId(card.id)
       setTimeout(() => {
         setCards((prev) =>
